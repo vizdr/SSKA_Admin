@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WcfDSUsersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AcceptanceSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsAcceptEmailSent" Type="Boolean" Nullable="false" />
+    <Property Name="AcceptEmailDate" Type="DateTime" Precision="3" />
+    <Property Name="AuthReqCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RequestDate" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="AuthCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="Self.FK_AccountAcceptance" FromRole="AcceptanceSet" ToRole="Accounts" />
+  </EntityType>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IsRequestOpen" Type="Boolean" />
+    <Property Name="IsAcceptedAR" Type="Boolean" />
+    <Property Name="IsPaid" Type="Boolean" Nullable="false" />
+    <Property Name="IsSentACEmail" Type="Boolean" Nullable="false" />
+    <Property Name="UserEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AcceptanceSets" Relationship="Self.FK_AccountAcceptance" FromRole="Accounts" ToRole="AcceptanceSet" />
+  </EntityType>
+  <Association Name="FK_AccountAcceptance">
+    <End Role="Accounts" Type="Self.Account" Multiplicity="1" />
+    <End Role="AcceptanceSet" Type="Self.AcceptanceSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AcceptanceSet">
+        <PropertyRef Name="Account_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WcfDSUsersEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AcceptanceSets" EntityType="Self.AcceptanceSet" />
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <AssociationSet Name="FK_AccountAcceptance" Association="Self.FK_AccountAcceptance">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="AcceptanceSet" EntitySet="AcceptanceSets" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

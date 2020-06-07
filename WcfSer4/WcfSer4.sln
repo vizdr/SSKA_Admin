@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfSer4", "WcfSer4\WcfSer4.csproj", "{2AEA5556-E8DB-40DD-9806-5958FD1E0CE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAppWS11", "WpfAppWS11\WpfAppWS11.csproj", "{971ADD1E-9568-4DAC-A394-B351399AB7A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServARR", "WcfServARR\WcfServARR.csproj", "{3CB0468E-9CDF-471B-8BFF-38E486C0386A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9BC38B2E-AA49-4BCD-B738-894754A98D22}"
+	ProjectSection(SolutionItems) = preProject
+		Performance1.psess = Performance1.psess
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfDS_FormAuth", "WcfDS_FormAuth\WcfDS_FormAuth.csproj", "{93353595-7E8B-494D-8A0E-ADC87029B983}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupWpfAppWS11", "SetupWpfAppWS11\SetupWpfAppWS11.vdproj", "{52D9995D-119B-45BB-9DB3-BDC4C5C04E73}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AEA5556-E8DB-40DD-9806-5958FD1E0CE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AEA5556-E8DB-40DD-9806-5958FD1E0CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AEA5556-E8DB-40DD-9806-5958FD1E0CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AEA5556-E8DB-40DD-9806-5958FD1E0CE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{971ADD1E-9568-4DAC-A394-B351399AB7A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{971ADD1E-9568-4DAC-A394-B351399AB7A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{971ADD1E-9568-4DAC-A394-B351399AB7A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{971ADD1E-9568-4DAC-A394-B351399AB7A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CB0468E-9CDF-471B-8BFF-38E486C0386A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CB0468E-9CDF-471B-8BFF-38E486C0386A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CB0468E-9CDF-471B-8BFF-38E486C0386A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CB0468E-9CDF-471B-8BFF-38E486C0386A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93353595-7E8B-494D-8A0E-ADC87029B983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93353595-7E8B-494D-8A0E-ADC87029B983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93353595-7E8B-494D-8A0E-ADC87029B983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93353595-7E8B-494D-8A0E-ADC87029B983}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52D9995D-119B-45BB-9DB3-BDC4C5C04E73}.Debug|Any CPU.ActiveCfg = Debug
+		{52D9995D-119B-45BB-9DB3-BDC4C5C04E73}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WcfDSUsersModelStoreContainer" CdmEntityContainer="WcfDSUsersEntities">
+    <EntitySetMapping Name="AcceptanceSets">
+      <EntityTypeMapping TypeName="WcfDSUsersModel.AcceptanceSet">
+        <MappingFragment StoreEntitySet="AcceptanceSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsAcceptEmailSent" ColumnName="IsAcceptEmailSent" />
+          <ScalarProperty Name="AcceptEmailDate" ColumnName="AcceptEmailDate" />
+          <ScalarProperty Name="AuthReqCode" ColumnName="AuthReqCode" />
+          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+          <ScalarProperty Name="AuthCode" ColumnName="AuthCode" />
+          <ScalarProperty Name="Account_Id" ColumnName="Account_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="WcfDSUsersModel.Account">
+        <MappingFragment StoreEntitySet="Accounts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IsRequestOpen" ColumnName="IsRequestOpen" />
+          <ScalarProperty Name="IsAcceptedAR" ColumnName="IsAcceptedAR" />
+          <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+          <ScalarProperty Name="IsSentACEmail" ColumnName="IsSentACEmail" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

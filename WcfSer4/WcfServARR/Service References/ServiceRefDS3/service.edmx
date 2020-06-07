@@ -1,0 +1,55 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices m:DataServiceVersion="1.0" m:MaxDataServiceVersion="3.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+    <Schema Namespace="WcfDSUsersModel" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <EntityType Name="AcceptanceSet">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="IsAcceptEmailSent" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="AcceptEmailDate" Type="Edm.DateTime" Precision="3" />
+        <Property Name="AuthReqCode" Type="Edm.String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="RequestDate" Type="Edm.DateTime" Nullable="false" Precision="3" />
+        <Property Name="AuthCode" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="Account_Id" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="Account" Relationship="WcfDSUsersModel.FK_AccountAcceptance" ToRole="Accounts" FromRole="AcceptanceSet" />
+      </EntityType>
+      <EntityType Name="Account">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="IsRequestOpen" Type="Edm.Boolean" />
+        <Property Name="IsAcceptedAR" Type="Edm.Boolean" />
+        <Property Name="IsPaid" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="IsSentACEmail" Type="Edm.Boolean" Nullable="false" />
+        <Property Name="UserEmail" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="UserFirstName" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="AcceptanceSets" Relationship="WcfDSUsersModel.FK_AccountAcceptance" ToRole="AcceptanceSet" FromRole="Accounts" />
+      </EntityType>
+      <Association Name="FK_AccountAcceptance">
+        <End Type="WcfDSUsersModel.Account" Role="Accounts" Multiplicity="1" />
+        <End Type="WcfDSUsersModel.AcceptanceSet" Role="AcceptanceSet" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Accounts">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="AcceptanceSet">
+            <PropertyRef Name="Account_Id" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+    </Schema>
+    <Schema Namespace="WcfSer4" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <EntityContainer Name="WcfDSUsersEntities" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="AcceptanceSets" EntityType="WcfDSUsersModel.AcceptanceSet" />
+        <EntitySet Name="Accounts" EntityType="WcfDSUsersModel.Account" />
+        <AssociationSet Name="FK_AccountAcceptance" Association="WcfDSUsersModel.FK_AccountAcceptance">
+          <End Role="AcceptanceSet" EntitySet="AcceptanceSets" />
+          <End Role="Accounts" EntitySet="Accounts" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

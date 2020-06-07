@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WcfDSUsersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AcceptanceSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsAcceptEmailSent" Type="bit" Nullable="false" />
+    <Property Name="AcceptEmailDate" Type="datetime" />
+    <Property Name="AuthReqCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RequestDate" Type="datetime" Nullable="false" />
+    <Property Name="AuthCode" Type="nvarchar(max)" />
+    <Property Name="Account_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IsRequestOpen" Type="bit" />
+    <Property Name="IsAcceptedAR" Type="bit" />
+    <Property Name="IsPaid" Type="bit" Nullable="false" />
+    <Property Name="IsSentACEmail" Type="bit" Nullable="false" />
+    <Property Name="UserEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserFirstName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_AccountAcceptance">
+    <End Role="Accounts" Type="Self.Accounts" Multiplicity="1" />
+    <End Role="AcceptanceSet" Type="Self.AcceptanceSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accounts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AcceptanceSet">
+        <PropertyRef Name="Account_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WcfDSUsersModelStoreContainer">
+    <EntitySet Name="AcceptanceSet" EntityType="Self.AcceptanceSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AccountAcceptance" Association="Self.FK_AccountAcceptance">
+      <End Role="Accounts" EntitySet="Accounts" />
+      <End Role="AcceptanceSet" EntitySet="AcceptanceSet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

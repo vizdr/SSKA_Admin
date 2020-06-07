@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WcfServARR.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WcfSer4_WcfDS3url" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/WcfSer4/WcfDS3.svc</Value>
+    </Setting>
+    <Setting Name="Domain" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost</Value>
+    </Setting>
+    <Setting Name="UserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">vizdr</Value>
+    </Setting>
+    <Setting Name="Pwd" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">bjkf55++</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
