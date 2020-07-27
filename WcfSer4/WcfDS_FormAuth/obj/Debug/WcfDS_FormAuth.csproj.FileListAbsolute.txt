@@ -7,6 +7,6 @@ C:\Users\VIS\documents\visual studio 2013\Projects\WcfSer4\WcfDS_FormAuth\obj\De
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WcfDS_FormAuth\bin\Debug\WcfDS_FormAuth.dll.config
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WcfDS_FormAuth\bin\Debug\WcfDS_FormAuth.dll
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WcfDS_FormAuth\bin\Debug\WcfDS_FormAuth.pdb
-C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WcfDS_FormAuth\obj\Debug\WcfDS_FormAuth.csprojResolveAssemblyReference.cache
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WcfDS_FormAuth\obj\Debug\WcfDS_FormAuth.dll
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WcfDS_FormAuth\obj\Debug\WcfDS_FormAuth.pdb
+C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WcfDS_FormAuth\obj\Debug\WcfDS_FormAuth.csprojResolveAssemblyReference.cache

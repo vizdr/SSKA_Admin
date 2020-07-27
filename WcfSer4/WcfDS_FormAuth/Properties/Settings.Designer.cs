@@ -43,7 +43,7 @@ namespace WcfDS_FormAuth.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost/WcfSer4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://lenovo-13/WcfSer4")]
         public string WcfSer4Url {
             get {
                 return ((string)(this["WcfSer4Url"]));

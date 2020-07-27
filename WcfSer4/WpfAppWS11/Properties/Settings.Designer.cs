@@ -53,7 +53,7 @@ namespace WpfAppWS11.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost/WcfSer4/WcfDS3.svc")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost/WcfSer4/WcfDS3.svc")]
         public string WDSUrl {
             get {
                 return ((string)(this["WDSUrl"]));

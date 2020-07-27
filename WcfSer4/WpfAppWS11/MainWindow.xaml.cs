@@ -138,9 +138,12 @@ namespace WpfAppWS11
                 MessageBox.Show(ex.Message, "DataService ResponceError", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-
-            accountsViewSource.View.MoveCurrentToFirst();
-            acceptanceSetsListView.SelectedIndex = 0;
+            if (accountsViewSource.View != null)
+            {
+                accountsViewSource.View.MoveCurrentToFirst();
+                acceptanceSetsListView.SelectedIndex = 0;
+            }            
+            
             textBox_AuthorizationRequestCode.Text = authorizRequestCodeInitialText;
         }
 

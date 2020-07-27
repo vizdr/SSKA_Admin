@@ -61,8 +61,6 @@ C:\Users\VIS\documents\visual studio 2013\Projects\WcfSer4\WpfAppWS11\obj\Debug\
 C:\Users\VIS\documents\visual studio 2013\Projects\WcfSer4\WpfAppWS11\bin\Debug\WcfDS_FormAuth.dll
 C:\Users\VIS\documents\visual studio 2013\Projects\WcfSer4\WpfAppWS11\bin\Debug\WcfDS_FormAuth.pdb
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\bin\Debug\WpfAppWS11.exe.config
-C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\obj\Debug\WpfAppWS11.exe
-C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\obj\Debug\WpfAppWS11.pdb
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\bin\Debug\WpfAppWS11.exe
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\bin\Debug\WpfAppWS11.pdb
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\bin\Debug\Microsoft.Data.Edm.dll
@@ -74,7 +72,6 @@ C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfApp
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\bin\Debug\Microsoft.Data.Edm.xml
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\bin\Debug\Microsoft.Data.OData.xml
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\bin\Debug\Microsoft.Data.Services.Client.xml
-C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\bin\Debug\SimpleSecurity.pdb
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\bin\Debug\System.Spatial.xml
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\bin\Debug\de\Microsoft.Data.Edm.resources.dll
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\bin\Debug\es\Microsoft.Data.Edm.resources.dll
@@ -121,3 +118,5 @@ C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfApp
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\obj\Debug\WpfAppWS11.g.resources
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\obj\Debug\WpfAppWS11.Properties.Resources.resources
 C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\obj\Debug\WpfAppWS11.csproj.GenerateResource.Cache
+C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\obj\Debug\WpfAppWS11.exe
+C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\obj\Debug\WpfAppWS11.pdb
