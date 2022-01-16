@@ -43,7 +43,7 @@ namespace WpfAppWS11.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("localhost")]
+        [global::System.Configuration.DefaultSettingValueAttribute("vizdr.somee.com")]
         public string Domain {
             get {
                 return ((string)(this["Domain"]));
@@ -53,7 +53,7 @@ namespace WpfAppWS11.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost/WcfSer4/WcfDS3.svc")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://vizdr.somee.com/WcfSer4/WcfDS3.svc")]
         public string WDSUrl {
             get {
                 return ((string)(this["WDSUrl"]));

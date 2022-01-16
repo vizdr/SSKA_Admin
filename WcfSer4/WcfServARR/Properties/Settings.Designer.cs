@@ -25,25 +25,6 @@ namespace WcfServARR.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost/WcfSer4/WcfDS3.svc")]
-        public string WcfSer4_WcfDS3url {
-            get {
-                return ((string)(this["WcfSer4_WcfDS3url"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("localhost")]
-        public string Domain {
-            get {
-                return ((string)(this["Domain"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("vizdr")]
         public string UserName {
             get {
@@ -57,6 +38,25 @@ namespace WcfServARR.Properties {
         public string Pwd {
             get {
                 return ((string)(this["Pwd"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://lenovo-13/WcfSer4/WcfDS3.svc")]
+        public string WcfSer4_WcfDS3url {
+            get {
+                return ((string)(this["WcfSer4_WcfDS3url"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("lenovo-13")]
+        public string Domain {
+            get {
+                return ((string)(this["Domain"]));
             }
         }
     }

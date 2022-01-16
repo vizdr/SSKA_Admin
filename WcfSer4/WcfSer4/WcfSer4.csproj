@@ -138,7 +138,6 @@
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
-    <Content Include="WcfDataService563Probe.svc" />
     <Content Include="WcfDS3.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -186,9 +185,6 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="WcfDataService563Probe.svc.cs">
-      <DependentUpon>WcfDataService563Probe.svc</DependentUpon>
-    </Compile>
     <Compile Include="WcfDS3.svc.cs">
       <DependentUpon>WcfDS3.svc</DependentUpon>
     </Compile>
@@ -233,7 +229,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50929</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://LENOVO-13/WcfSer4</IISUrl>
+          <IISUrl>http://lenovo-13/WcfSer4</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>http://vizdr.somee.com/WcfSer4</CustomServerUrl>

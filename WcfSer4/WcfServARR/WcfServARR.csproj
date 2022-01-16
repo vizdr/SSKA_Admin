@@ -150,11 +150,10 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>56732</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/WcfServARR</IISUrl>
+          <IISUrl>http://lenovo-13/WcfServARR</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://vizdr.somee.com/WcfServARR</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
