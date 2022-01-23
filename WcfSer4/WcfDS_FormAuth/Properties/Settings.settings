@@ -9,7 +9,7 @@
       <Value Profile="(Default)">bjkf55++</Value>
     </Setting>
     <Setting Name="WcfSer4Url" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://lenovo-13/WcfSer4</Value>
+      <Value Profile="(Default)">http://vizdr.somee.com/WcfSer4</Value>
     </Setting>
   </Settings>
 </SettingsFile>

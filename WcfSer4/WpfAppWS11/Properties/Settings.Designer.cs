@@ -25,6 +25,25 @@ namespace WpfAppWS11.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("vizdr.somee.com")]
+        public string Domain {
+            get {
+                return ((string)(this["Domain"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://vizdr.somee.com/WcfSer4/WcfDS3.svc")]
+        public string WDSUrl {
+            get {
+                return ((string)(this["WDSUrl"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("vizdr")]
         public string UserName {
             get {
@@ -38,25 +57,6 @@ namespace WpfAppWS11.Properties {
         public string Pwd {
             get {
                 return ((string)(this["Pwd"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("vizdr.somee.com")]
-        public string Domain {
-            get {
-                return ((string)(this["Domain"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://vizdr.somee.com/WcfSer4/WcfDS3.svc")]
-        public string WDSUrl {
-            get {
-                return ((string)(this["WDSUrl"]));
             }
         }
     }

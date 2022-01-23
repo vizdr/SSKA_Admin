@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 // Original file name:
-// Generation date: 08.03.2017 09:06:32
+// Generation date: 22.01.2022 09:57:22
 namespace WpfAppWS11.ServiceReference1
 {
     

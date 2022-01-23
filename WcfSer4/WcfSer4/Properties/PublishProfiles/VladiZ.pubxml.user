@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\VIS\Documents\WcfSer4</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\VIS\Documents\SSKA-WebSomeePublish\WcfSer4-toSmee</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/AspNet.ScriptManager.jQuery.dll">
@@ -151,7 +151,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/05/2017 22:23:30</publishTime>
     </File>
     <File Include="bin/WcfSer4.dll">
-      <publishTime>01/16/2022 08:25:23</publishTime>
+      <publishTime>01/17/2022 12:36:31</publishTime>
     </File>
     <File Include="bin/zh-Hans/Microsoft.Data.Edm.resources.dll">
       <publishTime>02/05/2017 22:23:30</publishTime>
@@ -207,14 +207,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/jquery-3.1.1.slim.min.map">
       <publishTime>03/08/2017 20:39:18</publishTime>
     </File>
-    <File Include="WcfDataService563Probe.svc">
-      <publishTime>04/13/2020 18:40:00</publishTime>
-    </File>
     <File Include="WcfDS3.svc">
       <publishTime>02/05/2017 21:30:36</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/16/2022 08:52:33</publishTime>
+      <publishTime>01/22/2022 10:01:27</publishTime>
     </File>
   </ItemGroup>
 </Project>

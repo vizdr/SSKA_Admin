@@ -16,7 +16,17 @@ namespace WcfDS_FormAuth
 
         public static string GetCookie()
         {
-            return GetCookie(Settings.Default.UserName, Settings.Default.Pwd, Settings.Default.WcfSer4Url);
+            string result = String.Empty;
+            try
+            {
+                result = GetCookie(Settings.Default.UserName, Settings.Default.Pwd, Settings.Default.WcfSer4Url);
+            }
+            catch (ApplicationException ex )
+            {
+                System.Diagnostics.Trace.WriteLine(ex.Message);
+            }
+            
+            return result;
         }
         public static string GetCookie(string userName, string password, string wcfSer4Url)
         {
@@ -24,45 +34,32 @@ namespace WcfDS_FormAuth
             {
                 string loginUri = string.Format("{0}/{1}/{2}", 
                    wcfSer4Url,
-                    "Authentication_JSON_AppService.axd", //Endpoint of IIS Authentication service, embedded in IIS 
+                    "Authentication_JSON_AppService.axd", //Endpoint of IIS Embedded Authentication service
                     "Login");
                 WebRequest request = HttpWebRequest.Create(loginUri);
                 request.Method = "POST";
                 request.ContentType = "application/json";
-                
+
                 string authBody = String.Format(
                     "{{ \"userName\": \"{0}\", \"password\": \"{1}\", \"createPersistentCookie\":false}}",
                     userName,
                     password);
                 request.ContentLength = authBody.Length;
-
-                //StreamWriter w = new StreamWriter(request.GetRequestStream());
-                //w.Write(authBody);
-                //w.Close();
-
-                //WebResponse res = request.GetResponse();
-                //if (res.Headers["Set-Cookie"] != null)
-                //{
-                //    _cookie = res.Headers["Set-Cookie"];
-                //}
-                //else
-                //{
-                //    throw new SecurityException("Invalid username and password");
-                //}
-
+                request.Credentials = new NetworkCredential(userName, password);
+                request.UseDefaultCredentials = true;
                 try
                 {
                     using (StreamWriter w = new StreamWriter(request.GetRequestStream()))
                     {
                         w.Write(authBody);
                         w.Close();
-                    }
+                    }                    
                 }
                 catch (WebException webExc)
-                {
-                    throw new ApplicationException(webExc.Message);
+                {                    
+                    throw new ApplicationException( webExc.Message);
                 }
-
+                
 
                 using (WebResponse res = request.GetResponse())
                 {
@@ -77,12 +74,12 @@ namespace WcfDS_FormAuth
                             throw new SecurityException("Invalid username and password");
                         }
                     }
-                    catch (Exception ex)
+                    catch(Exception ex)
                     {
                         throw new ApplicationException(ex.Message);
                     }
 
-                }          
+                 }              
             }
             return _cookie;
         } 

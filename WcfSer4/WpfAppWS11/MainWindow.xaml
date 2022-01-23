@@ -101,7 +101,7 @@
             <Button Name="button_GetAuthorizCode" Grid.Row="1" Grid.Column="2" Margin="4"   Width="Auto" Height="Auto" Click="button_GetAuthorizCode_Click">
                 <TextBlock Text="Generate Authorization Code" TextWrapping="Wrap"></TextBlock>
             </Button>
-            <TextBox Name="textBox_AuthorizationRequestCode"  Grid.Row="1" Grid.Column="2" Height="23" TextWrapping="Wrap"  Margin="3,0" Width="Auto"  PreviewMouseLeftButtonUp="txtBox_AuthRequestCode_MouseUp"/>
+            <TextBox Name="textBox_AuthorizationRequestCode"  Grid.Row="1" Grid.Column="2" Height="99" TextWrapping="Wrap"  Margin="3,0" Width="Auto"  PreviewMouseLeftButtonUp="txtBox_AuthRequestCode_MouseUp"/>
         </StackPanel>
         <Button Content="Refresh" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Grid.Row="1"  Width="75" Click="Button_Click"/>
     </Grid>

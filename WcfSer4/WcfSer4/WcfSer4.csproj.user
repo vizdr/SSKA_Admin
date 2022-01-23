@@ -2,8 +2,12 @@
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <NameOfLastUsedPublishProfile>VladiZ</NameOfLastUsedPublishProfile>
-    <ProjectView>ProjectFiles</ProjectView>
-    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
@@ -17,13 +21,22 @@
           <SQLDebugging>True</SQLDebugging>
           <ExternalProgram>
           </ExternalProgram>
-          <StartExternalURL>https://localhost/WcfSer4</StartExternalURL>
+          <StartExternalURL>
+          </StartExternalURL>
           <StartCmdLineArguments>
           </StartCmdLineArguments>
           <StartWorkingDirectory>
           </StartWorkingDirectory>
           <EnableENC>True</EnableENC>
           <AlwaysStartWebServerOnDebug>True</AlwaysStartWebServerOnDebug>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50929</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/WcfSer4</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://vizdr.somee.com/WcfSer4</CustomServerUrl>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

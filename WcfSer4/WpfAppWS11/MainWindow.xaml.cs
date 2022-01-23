@@ -50,28 +50,24 @@ namespace WpfAppWS11
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Uri serviceUri = new Uri(Settings.Default.WDSUrl); 
-            dataServiceClient = new WcfDSUsersEntities( serviceUri );
+            dataServiceClient = new WcfDSUsersEntities( new Uri(Settings.Default.WDSUrl) );
             dataServiceClient.UsePostTunneling = true;
             dataServiceClient.MergeOption = MergeOption.PreserveChanges;
             //If Basic Security enabled on webserver
-            //dataServiceClient.Credentials = new NetworkCredential(
-            //    userName: Settings.Default.UserName,
-            //    password: Settings.Default.Pwd,
-            //    domain: Settings.Default.Domain);
-            //NetworkCredential nwDSCredential = dataServiceClient.Credentials.GetCredential(serviceUri, "Forms");
-            
+            dataServiceClient.Credentials = new NetworkCredential(
+                userName: Settings.Default.UserName,
+                password: Settings.Default.Pwd,
+                domain: Settings.Default.Domain);
             query = dataServiceClient.Accounts.IncludeTotalCount();
             accountsViewSource = ((CollectionViewSource)(this.FindResource("accountsViewSource")));
-            dataServiceClient.SendingRequest += new EventHandler<SendingRequestEventArgs>(OnSendingRequest);       
-
+            dataServiceClient.SendingRequest += new EventHandler<SendingRequestEventArgs>(OnSendingRequest);
             try
             {
                 try
                 {
                     List<Account> accList = query.Expand("AcceptanceSets").ToList();
                     accList.Sort(CompareAccountsByPayment);
-                    accountsViewSource.Source = accList;
+                    accountsViewSource.Source = accList;              
                 }
                 catch (Exception ex)
                 {
@@ -80,18 +76,18 @@ namespace WpfAppWS11
                         throw new ApplicationException(
                         ex.Message, ex);
                     }
-                    else if (ex is DataServiceTransportException)
+                    else if(ex is DataServiceTransportException)
                     {
                         throw new ApplicationException(
                         ex.Message, ex);
-                    }
+                    }                
                 }
             }
             catch (ApplicationException ex)
             {
-                MessageBox.Show(ex.Message, "DataService query error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
+                MessageBox.Show(ex.Message, "DataService query error",  MessageBoxButton.OK, MessageBoxImage.Error);
+            } 
+           
 
             // Pagination
             try
@@ -102,30 +98,30 @@ namespace WpfAppWS11
                     response = dataServiceClient.Accounts.Execute() as QueryOperationResponse<Account>;
 
                     //pageCount = response.TotalCount; response does not support
-                    tokens = new List<DataServiceQueryContinuation<Account>>();
+                    tokens = new List<DataServiceQueryContinuation<Account>>(); 
                     do
-                    {
-                        pageCount++;
+                    {                    
+                        pageCount++;                  
                         if (token != null)
                         {
-                            //Load the new page from the next link URI.
+                             //Load the new page from the next link URI.
                             tokens.Add(token);
                             response = dataServiceClient.Execute<Account>(token)
                                 as QueryOperationResponse<Account>;
                             response.ToList();
                         }
-                        else response.ToList();
+                        else response.ToList(); 
                     }
-                    //Get the next link, and continue while there is a next link.
+                     //Get the next link, and continue while there is a next link.
                     while ((token = response.GetContinuation()) != null);
 
                     lbl_Pages.Content += Convert.ToString(pageCount);
-                    lbl_CurrPageNr.Content = Convert.ToString(currPage);
+                    lbl_CurrPageNr.Content =  Convert.ToString(currPage);
                 }
                 catch (DataServiceQueryException ex)
                 {
                     throw new ApplicationException(
-                        ex.Message, ex.InnerException);
+                        ex.Message, ex.InnerException );
                 }
                 catch (DataServiceTransportException ex)
                 {
@@ -142,9 +138,15 @@ namespace WpfAppWS11
             {
                 accountsViewSource.View.MoveCurrentToFirst();
                 acceptanceSetsListView.SelectedIndex = 0;
-            }            
-            
-            textBox_AuthorizationRequestCode.Text = authorizRequestCodeInitialText;
+                textBox_AuthorizationRequestCode.Text = authorizRequestCodeInitialText;
+                textBox_AuthorizationRequestCode.FontWeight = FontWeights.Normal;
+            }
+            else 
+            {
+                textBox_AuthorizationRequestCode.MinLines = 3;
+                textBox_AuthorizationRequestCode.Text = "Data Service \ndid not return \nany data";
+                textBox_AuthorizationRequestCode.FontWeight = FontWeights.ExtraBold;
+            }
         }
 
         void OnSendingRequest(object sender, SendingRequestEventArgs e)
@@ -152,13 +154,8 @@ namespace WpfAppWS11
             string cookie = DSCookies.GetCookie();
             e.RequestHeaders.Add("Cookie", cookie);
 
-            String  auType = Thread.CurrentPrincipal.Identity.AuthenticationType;
-            bool isAuthenticated = Thread.CurrentPrincipal.Identity.IsAuthenticated;
-
-            //((HttpWebRequest)e.Request).CookieContainer =
-            //((ClientFormsIdentity)Thread.CurrentPrincipal.Identity).AuthenticationCookies;
-            
-            
+         //   ((HttpWebRequest)e.Request).CookieContainer =
+         //((ClientFormsIdentity)Thread.CurrentPrincipal.Identity).AuthenticationCookies;
         }
         private void Button_SaveAccSetChanges_Click(object sender, RoutedEventArgs e)
         {
@@ -177,7 +174,7 @@ namespace WpfAppWS11
 
         private void ButtonPgUp_Click(object sender, RoutedEventArgs e)
         {
-            if (accountsViewSource.View.CurrentPosition > 0)
+            if (accountsViewSource.View != null && accountsViewSource.View.CurrentPosition > 0)
             { 
                 accountsViewSource.View.MoveCurrentToPrevious();
                 acceptanceSetsListView.SelectedIndex = 0;
@@ -187,7 +184,7 @@ namespace WpfAppWS11
 
         private void PgDounPgDown_Click(object sender, RoutedEventArgs e)
         {
-            if (accountsViewSource.View.CurrentPosition < ((CollectionView)accountsViewSource.View).Count - 1)
+            if (accountsViewSource.View != null && accountsViewSource.View.CurrentPosition < ((CollectionView)accountsViewSource.View).Count - 1)
             {
                 accountsViewSource.View.MoveCurrentToNext();
                 acceptanceSetsListView.SelectedIndex = 0;
@@ -197,24 +194,28 @@ namespace WpfAppWS11
 
         private void ButtonSaveAccountChanges_Click(object sender, RoutedEventArgs e)
         {
-            try
-            { 
-                foreach (var ac in accountsViewSource.View)
-                {
-                    if (ac is ServiceReference1.Account)
-                    {
-                       if((ac as ServiceReference1.Account).Id == 0)                                             
-                            dataServiceClient.AddToAccounts(ac as ServiceReference1.Account);                       
-                    }
-                }
-                dataServiceClient.SaveChanges(SaveChangesOptions.Batch);
-                accountsViewSource.View.Refresh();
-            }
-            catch (ArgumentNullException ex)
+            if (accountsViewSource.View != null)
             {
-                txtBlock_Message.Text = ex.InnerException.ToString();
-                throw new ApplicationException("Save Account Changes failed. ", ex.InnerException);
-            }          
+                try
+                { 
+                    foreach (var ac in accountsViewSource.View)
+                    {
+                        if (ac is ServiceReference1.Account)
+                        {
+                           if((ac as ServiceReference1.Account).Id == 0)                                             
+                                dataServiceClient.AddToAccounts(ac as ServiceReference1.Account);                       
+                        }
+                    }
+                    dataServiceClient.SaveChanges(SaveChangesOptions.Batch);
+                    accountsViewSource.View.Refresh();
+                }
+                catch (ArgumentNullException ex)
+                {
+                    txtBlock_Message.Text = ex.InnerException.ToString();
+                    throw new ApplicationException("Save Account Changes failed. ", ex.InnerException);
+                }          
+            }
+            
         }
 
         private void ButtonAddNewAccSet_Click(object sender, RoutedEventArgs e)
@@ -230,14 +231,29 @@ namespace WpfAppWS11
 
         private void ButtonMoveLast_Click(object sender, RoutedEventArgs e)
         {
-            accountsViewSource.View.MoveCurrentToLast();
-            txtBlock_Message.Text = "";
+            if (accountsViewSource.View != null)
+            {
+                accountsViewSource.View.MoveCurrentToLast();
+                txtBlock_Message.Text = "";
+            }
+            else
+            {
+                txtBlock_Message.Text = "DS View Error";
+            }
+            
         }
 
         private void ButtonMoveFirst_Click(object sender, RoutedEventArgs e)
         {
-            accountsViewSource.View.MoveCurrentToFirst();
-            txtBlock_Message.Text = "";
+            if (accountsViewSource.View != null)
+            {
+                accountsViewSource.View.MoveCurrentToFirst();
+                txtBlock_Message.Text = "";
+            }
+            else
+            {
+                txtBlock_Message.Text = "DS View Error";
+            }
         }
 
        
@@ -305,23 +321,27 @@ namespace WpfAppWS11
 
         private void btn_LastPage_Click(object sender, RoutedEventArgs e)
         {
-            List<Account> accList = new List<Account>();
-            int qtyTokens = tokens.Count();
-
-            if (qtyTokens > 1)
+            if(tokens != null)
             {
-                token = tokens[qtyTokens - 1];
-                response = dataServiceClient.Execute<Account>(token) as QueryOperationResponse<Account>;
-                accList = response.ToList<Account>();
-                           
-                foreach (Account item in accList)
+                List<Account> accList = new List<Account>();
+                int qtyTokens = tokens.Count();
+
+                if (qtyTokens > 1)
                 {
-                    IEnumerable<AcceptanceSet> accSet = dataServiceClient.LoadProperty(item, "AcceptanceSets") as QueryOperationResponse<AcceptanceSet>;
-                }
-                accountsViewSource.Source = accList;
-                lbl_CurrPageNr.Content = Convert.ToString(pageCount);
-                accountsViewSource.View.Refresh();
-            }           
+                    token = tokens[qtyTokens - 1];
+                    response = dataServiceClient.Execute<Account>(token) as QueryOperationResponse<Account>;
+                    accList = response.ToList<Account>();
+                           
+                    foreach (Account item in accList)
+                    {
+                        IEnumerable<AcceptanceSet> accSet = dataServiceClient.LoadProperty(item, "AcceptanceSets") as QueryOperationResponse<AcceptanceSet>;
+                    }
+                    accountsViewSource.Source = accList;
+                    lbl_CurrPageNr.Content = Convert.ToString(pageCount);
+                    accountsViewSource.View.Refresh();
+                }           
+            }
+            
         }
 
         private void button_GetAuthorizCode_Click(object sender, RoutedEventArgs e)
@@ -352,7 +372,10 @@ namespace WpfAppWS11
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            accountsViewSource.View.Refresh();
+            if (accountsViewSource.View != null)
+            {
+                accountsViewSource.View.Refresh();
+            }           
         } 
      
         private int CompareAccountsByPayment(Account a1, Account a2)

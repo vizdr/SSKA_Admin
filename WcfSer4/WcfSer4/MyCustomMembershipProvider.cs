@@ -4,8 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 
-// Roles, is not in use
-
 namespace WcfSer4
 {
     public class MyCustomMembershipProvider : System.Web.Security.MembershipProvider
