@@ -1,20 +1,12 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data.Services.Client;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfAppWS11.Properties;
 using WpfAppWS11.ServiceReference1;
 using WcfDS_FormAuth;
@@ -60,7 +52,8 @@ namespace WpfAppWS11
                 domain: Settings.Default.Domain);
             query = dataServiceClient.Accounts.IncludeTotalCount();
             accountsViewSource = ((CollectionViewSource)(this.FindResource("accountsViewSource")));
-            dataServiceClient.SendingRequest += new EventHandler<SendingRequestEventArgs>(OnSendingRequest);
+            dataServiceClient.SendingRequest += new EventHandler<SendingRequestEventArgs>(OnSendingRequest);       
+            
             try
             {
                 try
@@ -214,8 +207,7 @@ namespace WpfAppWS11
                     txtBlock_Message.Text = ex.InnerException.ToString();
                     throw new ApplicationException("Save Account Changes failed. ", ex.InnerException);
                 }          
-            }
-            
+            }          
         }
 
         private void ButtonAddNewAccSet_Click(object sender, RoutedEventArgs e)

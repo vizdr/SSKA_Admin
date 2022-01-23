@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\VIS\Documents\WcfARR-somee</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\VIS\Documents\Visual Studio 2013\Projects\WcfARR-somee</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/de/Microsoft.Data.Edm.resources.dll">
@@ -106,10 +106,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/13/2017 00:03:17</publishTime>
     </File>
     <File Include="bin/WcfDS_FormAuth.dll">
-      <publishTime>01/13/2022 09:32:49</publishTime>
+      <publishTime>03/09/2017 23:21:41</publishTime>
     </File>
     <File Include="bin/WcfServARR.dll">
-      <publishTime>01/17/2022 12:27:13</publishTime>
+      <publishTime>03/10/2017 00:15:31</publishTime>
     </File>
     <File Include="bin/zh-Hans/Microsoft.Data.Edm.resources.dll">
       <publishTime>02/13/2017 00:03:18</publishTime>
@@ -148,7 +148,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/14/2017 22:32:47</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/17/2022 12:27:14</publishTime>
+      <publishTime>03/10/2017 00:15:31</publishTime>
     </File>
   </ItemGroup>
 </Project>

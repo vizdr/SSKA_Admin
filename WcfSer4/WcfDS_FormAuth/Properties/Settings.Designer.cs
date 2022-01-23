@@ -25,6 +25,16 @@ namespace WcfDS_FormAuth.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://vizdr.somee.com/WcfSer4/WcfDS3.svc")]
+        public string WcfSer4_WcfDS3url {
+            get {
+                return ((string)(this["WcfSer4_WcfDS3url"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("vizdr")]
         public string UserName {
             get {

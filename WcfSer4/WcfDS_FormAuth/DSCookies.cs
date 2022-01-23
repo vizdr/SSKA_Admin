@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Security;
-using System.Text;
-using System.Threading.Tasks;
 using WcfDS_FormAuth.Properties;
 
 namespace WcfDS_FormAuth
@@ -16,25 +12,15 @@ namespace WcfDS_FormAuth
 
         public static string GetCookie()
         {
-            string result = String.Empty;
-            try
-            {
-                result = GetCookie(Settings.Default.UserName, Settings.Default.Pwd, Settings.Default.WcfSer4Url);
-            }
-            catch (ApplicationException ex )
-            {
-                System.Diagnostics.Trace.WriteLine(ex.Message);
-            }
-            
-            return result;
+            return GetCookie(Settings.Default.UserName, Settings.Default.Pwd, Settings.Default.WcfSer4Url);
         }
         public static string GetCookie(string userName, string password, string wcfSer4Url)
         {
             if (_cookie == null)
             {
-                string loginUri = string.Format("{0}/{1}/{2}", 
+                string loginUri = string.Format("{0}/{1}/{2}", // 
                    wcfSer4Url,
-                    "Authentication_JSON_AppService.axd", //Endpoint of IIS Embedded Authentication service
+                    "Authentication_JSON_AppService.axd",//"",WcfSer4
                     "Login");
                 WebRequest request = HttpWebRequest.Create(loginUri);
                 request.Method = "POST";
@@ -47,39 +33,19 @@ namespace WcfDS_FormAuth
                 request.ContentLength = authBody.Length;
                 request.Credentials = new NetworkCredential(userName, password);
                 request.UseDefaultCredentials = true;
-                try
-                {
-                    using (StreamWriter w = new StreamWriter(request.GetRequestStream()))
-                    {
-                        w.Write(authBody);
-                        w.Close();
-                    }                    
-                }
-                catch (WebException webExc)
-                {                    
-                    throw new ApplicationException( webExc.Message);
-                }
-                
+                StreamWriter w = new StreamWriter(request.GetRequestStream());
+                w.Write(authBody);
+                w.Close();
 
-                using (WebResponse res = request.GetResponse())
+                WebResponse res = request.GetResponse();
+                if (res.Headers["Set-Cookie"] != null)
                 {
-                    try
-                    {
-                        if (res.Headers["Set-Cookie"] != null)
-                        {
-                            _cookie = res.Headers["Set-Cookie"];
-                        }
-                        else
-                        {
-                            throw new SecurityException("Invalid username and password");
-                        }
-                    }
-                    catch(Exception ex)
-                    {
-                        throw new ApplicationException(ex.Message);
-                    }
-
-                 }              
+                    _cookie = res.Headers["Set-Cookie"];
+                }
+                else
+                {
+                    throw new SecurityException("Invalid username and password");
+                }
             }
             return _cookie;
         } 
