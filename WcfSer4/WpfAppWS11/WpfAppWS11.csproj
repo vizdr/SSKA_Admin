@@ -46,8 +46,9 @@
       <HintPath>..\packages\Microsoft.Data.Services.Client.5.8.1\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleSecurity">
-      <HintPath>..\..\SimpleSecurity1\SimpleSecurity\bin\Release\SimpleSecurity.dll</HintPath>
+    <Reference Include="SimpleSecurity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalLibs\SimpleSecurity.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -145,6 +146,9 @@
       <Project>{93353595-7e8b-494d-8a0e-adc87029b983}</Project>
       <Name>WcfDS_FormAuth</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ExternalLibs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
