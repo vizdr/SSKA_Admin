@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="WcfSer4.login"  %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="WcfSer4.login" %>
 
 <!DOCTYPE html>
 
@@ -23,12 +23,12 @@
 
 <asp:TextBox ID="txtUserName" runat="server" Height="22px"/>
 
-<asp:RequiredFieldValidator ID="RV1" runat="server" EnableClientScript="true" 
+<asp:RequiredFieldValidator ID="RV1" runat="server" 
 
                             ControlToValidate="txtUserName" 
 
-                            ErrorMessage="User Name must be provided" 
-                             
+                            ErrorMessage="Please Enter User Name" 
+
                             SetFocusOnError="True">*
 
 </asp:RequiredFieldValidator><br />
@@ -43,15 +43,15 @@
 
 <br/>
 
-<asp:TextBox ID="txtPwd" runat="server" TextMode="Password"  
+<asp:TextBox ID="txtPwd" runat="server" TextMode="Password" 
 
                          CssClass="pwd" Height="22px"/>
 
-<asp:RequiredFieldValidator ID="RV2" runat="server" EnableClientScript="true" 
+<asp:RequiredFieldValidator ID="RV2" runat="server" 
 
                             ControlToValidate="txtPwd" 
 
-                            ErrorMessage="Password must be provided" 
+                            ErrorMessage="Your Password" 
 
                             SetFocusOnError="True">*
 
@@ -87,13 +87,13 @@ NavigateUrl="~/ForgotPassword.aspx">Forgot Password ?</asp:HyperLink>
 
 <%--NavigateUrl="~/Default.aspx">SignUp !</asp:HyperLink></div>  --%>                     
 
-<asp:ValidationSummary ID="ValidationSummary1"  
+<asp:ValidationSummary ID="ValidationSummary1" 
 
                        runat="server" CssClass="error"/>
 
 <br /><br />
 
-<asp:Label ID="lblMsg" runat="server" Text="Login or Password is incorrect!" CssClass="lbl"/>
+<asp:Label ID="lblMsg" runat="server" Text="" CssClass="lbl"/>
 
 </fieldset>
 
