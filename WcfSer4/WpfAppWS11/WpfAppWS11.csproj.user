@@ -10,4 +10,7 @@
     <FallbackCulture>en-US</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
+  <PropertyGroup>
+    <ReferencePath>C:\Users\VIS\Documents\Visual Studio 2013\Projects\GitHub_WcfSer4\WcfSer4\WpfAppWS11\ExternalLibs\</ReferencePath>
+  </PropertyGroup>
 </Project>
