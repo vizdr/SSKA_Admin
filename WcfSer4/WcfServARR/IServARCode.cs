@@ -7,7 +7,6 @@ namespace WcfServARR
     [ServiceContract]
     public interface IServARCode
     {
-
         [OperationContract]
         [FaultContract(typeof(AuthorizationRequestFault))]
         int TryToRegisterAuthRequest(AuthorizationRequest request);
@@ -53,5 +52,4 @@ namespace WcfServARR
         [DataMember]
         public string FaultMessage;
     }
-
 }

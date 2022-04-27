@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 using System.Data.Services.Client;
 using WcfServARR.Properties;
 using WcfServARR.ServiceRefDS3;
 using System.Net;
-using System.IO;
-using System.Security;
 using WcfDS_FormAuth;
-
 
 
 namespace WcfServARR
@@ -39,12 +32,15 @@ namespace WcfServARR
             dataServiceClient.SendingRequest += new EventHandler<SendingRequestEventArgs>(OnSendingRequest); 
         }
 
+
+        // Cookie for Web App WcfSer4 for using in forms authentication
         void OnSendingRequest(object sender, SendingRequestEventArgs e)
         {
             string cookie = DSCookies.GetCookie();
             e.RequestHeaders.Add("Cookie", cookie);         
         }
 
+        // Attempt to add the received from service ServARCode new request for the activation in the DB, provided by Data Service WcfDSUsersEntities.
         public int TryToRegisterAuthRequest(AuthorizationRequest request)
         {
             int result = 0;
@@ -146,7 +142,8 @@ namespace WcfServARR
                          (new AuthorizationRequestFault(msg), reason); ; 
             }                      
         }
-
+        
+        // Attempt to find user in query, received from Data Service
         private int TryToIdentifyUser(string userName, string userFirstName, string userEmail)
         {        
             var userId = query.ToList().Where(u => u.UserName == userName && u.UserFirstName == userFirstName && u.UserEmail == userEmail).Select(u => u.Id);
